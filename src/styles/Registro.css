@@ -1,31 +1,101 @@
-:root{
+:root {
   --bk: #151b26;
-  --alt: #50555E;
+  --yellow: #f7dc0a;
+}
+.main {
+  width: 100%;
+  margin-top:2.8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.main-container {
+    box-shadow: 2px 2px 9px 4px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 1px -1px 9px 4px rgba(0,0,0,0.4);
+    -moz-box-shadow: 1px -1px 9px 4px rgba(0,0,0,0.4);
+  width: 1200px;
+  height: 700px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
 }
 
-.registro-container {
-    top: 50%;
-    left: 50%;
-    width: 380px;
-    height: 500px;
-    position: absolute;
-    background-color: blanchedalmond;
-    transform: translate(-50%, -50%);
-    padding: 70px 35px;
-    border-radius: 10px;
-  }
-  
-  .registro-container p{
-    text-align: center;
-    font-size: 12px;
-    margin-top: 10px;
-  }
-  .soswachin {
-    color: var(--alt);
-    text-decoration: none;
-  }
-  
-  .soswachin:hover {
-    color: var(--bk);
-  }
-  
+.login-container {
+  background-color: white;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login-main-container {
+  width: 65%;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.logotext-container {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-container input {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 15px;
+
+  outline: none;
+  border: 1.5px solid var(--bk);
+  border-radius: 15px;
+  background: transparent;
+}
+
+.input-container Button { 
+    background-color: #FFE53B;
+    background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);    
+
+  width: 390px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+}
+
+.input-container p{
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.registro-img-container {
+    background-color: #FFE53B;
+    background-image: linear-gradient(120deg, #FFE53B 0%, #FF2525 74%);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: #ed3b37;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

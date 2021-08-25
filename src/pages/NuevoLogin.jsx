@@ -15,59 +15,59 @@ const NuevoLogin = () => {
 
   return (
     <div className="main">
-    <div className="main-container">
-      <div className="login-container">
-        <div className="login-main-container">
-          <div className="logotext-container">
-            <p>BIENVENIDO A</p>
-            <h1>Proyecto Solidario</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-              odit fugiat consectetur rerum ex magni!
+      <div className="main-container">
+        <div className="login-container">
+          <div className="login-main-container">
+            <div className="logotext-container">
+              <p>BIENVENIDO A</p>
+              <h1>Proyecto Solidario</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+                odit fugiat consectetur rerum ex magni!
             </p>
-          </div>
+            </div>
 
-          <div className="input-container">
-            <input
-              type="email"
-              id="email"
-              placeholder="Usuario"
-              onChange={(ev) => setEmail(ev.target.value)}
-            />
+            <div className="input-container">
+              <input
+                type="email"
+                id="email"
+                placeholder="Usuario"
+                onChange={(ev) => setEmail(ev.target.value)}
+              />
 
-            <input
-              type="password"
-              id="password"
-              placeholder="Contraseña"
-              onChange={(ev) => setPassword(ev.target.value)}
-            />
+              <input
+                type="password"
+                id="password"
+                placeholder="Contraseña"
+                onChange={(ev) => setPassword(ev.target.value)}
+              />
 
-            <Button
-              onClick={submit}
-              linkTo=""
-              buttonStyle="btnToLogin"
-              buttonSize="btnSizeLogin"
-            >
-              INICIAR SESIÓN
+              <Button
+                onClick={submit}
+                linkTo=""
+                buttonStyle="btnToLogin"
+                buttonSize="btnSizeLogin"
+              >
+                INICIAR SESIÓN
             </Button>
 
-            <p>
-              <Link to="/" className="soswachin">
-                Has olvidado tu contraseña?
+              <p>
+                <Link to="/">
+                  ¿Olvidaste tu contraseña?
               </Link>
-            </p>
-            <p>
-              <Link to="/Registro" className="soswachin">
-                No tenes una cuenta aún? Registrate!
+              </p>
+              <p>
+                <Link to="/Registro">
+                  ¿No tenés una cuenta aún? ¡Registrate!
               </Link>
-            </p>
+              </p>
+            </div>
           </div>
         </div>
+        <div className="img-container">
+
+        </div>
       </div>
-      <div className="img-container">
-        
-      </div>
-    </div>
     </div>
   );
 };

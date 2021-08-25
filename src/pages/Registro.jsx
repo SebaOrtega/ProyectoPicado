@@ -4,69 +4,82 @@ import { Button } from "../components/Button";
 import "../styles/Registro.css";
 
 const Registro = () => {
-  /* En las variables email, password, nombre, apellido se almacenan los datos del login. */
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
+  /* En las variables email y password se almacenan los datos del login */
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
-	
-  /* La función submit hace que los datos sean enviados a algun lugar. */
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const submit = () => {
-    console.log(nombre, apellido, email, password);
+    alert(`${email}, ${password},${nombre},${apellido}`);
   };
 
   return (
-    <div className="registro-container form-type">
-      <h1>Registrarse</h1>
+    <div className="main">
+      <div className="main-container">
+      <div className="registro-img-container">
 
-      <label htmlFor="nombre">Nombre</label>
+</div>
+        <div className="login-container">
+          <div className="login-main-container">
+            <div className="logotext-container">
+              <p>REGISTRATE A</p>
+              <h1>Proyecto Solidario</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+                odit fugiat consectetur rerum ex magni!
+            </p>
+            </div>
 
-      <input
-        type="text"
-        id="nombre"
-        onChange={(ev) => setNombre(ev.target.value)}
-      />
+            <div className="input-container">
+            <input
+                type="text"
+                id="nombre"
+                placeholder="Nombre"
+                onChange={(ev) => setNombre(ev.target.value)}
+              />
+              <input
+                type="text"
+                id="apellido"
+                placeholder="Apellido"
+                onChange={(ev) => setApellido(ev.target.value)}
+              />
+              <input
+                type="text"
+                id="email"
+                placeholder="Correo Electrónico"
+                onChange={(ev) => setEmail(ev.target.value)}
+              />
 
-      <label htmlFor="apellido">Apellido</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Contraseña"
+                onChange={(ev) => setPassword(ev.target.value)}
+              />
 
-      <input
-        type="text"
-        id="apellido"
-        onChange={(ev) => setApellido(ev.target.value)}
-      />
+              <Button
+                onClick={submit}
+                linkTo=""
+                buttonStyle="btnToLogin"
+                buttonSize="btnSizeLogin"
+              >
+                REGISTRARSE
+            </Button>
 
-      <label htmlFor="email"> Correo Electrónico</label>
+              <p>
+                <Link to="/Login">
+                  ¿Ya tenés una cuenta? ¡Ingresá!
+              </Link>
+              </p>
+            </div>
+          </div>
+        </div>
 
-      <input
-        type="email"
-        id="email"
-        onChange={(ev) => setEmail(ev.target.value)}
-      />
-
-      <label htmlFor="password">Contraseña</label>
-
-      <input
-        type="password"
-        id="password"
-        onChange={(ev) => setPassword(ev.target.value)}
-      />
-
-      <Button
-        onClick={submit}
-        linkTo=""
-        buttonStyle="btnToLogin"
-        buttonSize="btnSizeLogin"
-      >
-        REGISTRARSE
-      </Button>
-
-      <p>
-        <Link to="/Login" className="soswachin">
-          Ya tenes una cuenta? Ingresá
-        </Link>
-      </p>
+      </div>
     </div>
   );
 };
 
-export default Registro;
+export default Registro ;

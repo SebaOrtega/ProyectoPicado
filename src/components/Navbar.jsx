@@ -19,7 +19,7 @@ const Navbar = ({ showNav }) => {
   };
 
   let location = useLocation();
-  if (location.pathname.includes("RegistroNegocio")) {
+  if (location.pathname.includes("Login") || location.pathname.includes("Registro") ){
     console.log("holas");
     showNav(false);
   } else {
