@@ -1,0 +1,132 @@
+:root {
+  --bk: #151b26;
+  --yellow: #f7dc0a;
+  --gray: #f3f3f3;
+  --graytext: #6f7782;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+
+.izquierda {
+  background-color: var(--bk);
+}
+.derecha {
+  height: 100vh;
+}
+
+
+.botones-guia{
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 6px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  height: 32px;
+  width: 32px;
+  transition: all 0.3s;
+}
+
+.fa-arrow-left {
+  color: var(--graytext);
+}
+
+.fa-times{
+  color: var(--gray);
+
+}
+
+.botones-guia:hover {
+  background: var(--gray);
+  color: var(--bk);
+}
+
+.registronegocio-container {
+  position: relative;
+  margin-top: 25vh;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: var(--bk);
+}
+
+.registronegocio-container h1 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+
+  margin-bottom: 16px;
+
+  align-self: flex-start;
+}
+
+.registronegocio-container label {
+  align-self: flex-start;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--graytext);
+}
+
+.registronegocio-container input {
+  width: 100%;
+  height: 30px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 500;
+
+  outline: none;
+  border-style: solid;
+  border-radius: 0;
+  border-width: 0 0 1px;
+}
+
+.registronegocio-container button {
+  background-color: var(--yellow);
+  border: none;
+  margin-top: 16px;
+  width: 100%;
+  height: 36px;
+  padding: 0 12px;
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.registronegocio-container .dropdown {
+  width: 100%;
+  height: 30px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 500;
+
+  color: var(--bk);
+  outline: none;
+  border-style: solid;
+  border-radius: 0;
+  border-width: 0 0 1px;
+}
