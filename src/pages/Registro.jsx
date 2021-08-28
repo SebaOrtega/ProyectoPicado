@@ -8,20 +8,21 @@ import axios from 'axios';
 const Registro = () => {
 
   /* En las variables email y password se almacenan los datos del login */
-  const [nombre, setNombre] = useState("");
-  const [apellido, setApellido] = useState("");
-  const [email, setEmail] = useState("");
+  const [nombre_cliente, setNombre] = useState("");
+  const [apellido_cliente, setApellido] = useState("");
+  const [mail, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rep_pw, setRep_Password] = useState("");
 
   const Cliente = {
-    nombre,
-    apellido,
-    email,
+    nombre_cliente,
+    apellido_cliente,
+    mail,
     password,
     rep_pw
   }
   const submit = () => {
+    console.log(Cliente);
     axios.post('http://localhost:5000/clients/add', Cliente)
     .then(res => console.log(res.data));
     //alert(`${email}, ${password},${nombre},${apellido}`);
@@ -36,7 +37,7 @@ const Registro = () => {
         <div className="login-container">
           <div className="login-main-container">
             <div className="logotext-container">
-              <p>REGISTRATE A</p>
+              <p>REGISTRATE EN</p>
               <h1>Proyecto Solidario</h1>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
@@ -47,19 +48,19 @@ const Registro = () => {
             <div className="input-container">
             <input
                 type="text"
-                id="nombre"
+                id="nombre_cliente"
                 placeholder="Nombre"
                 onChange={(ev) => setNombre(ev.target.value)}
               />
               <input
                 type="text"
-                id="apellido"
+                id="apellido_cliente"
                 placeholder="Apellido"
                 onChange={(ev) => setApellido(ev.target.value)}
               />
               <input
                 type="text"
-                id="email"
+                id="mail"
                 placeholder="Correo Electrónico"
                 onChange={(ev) => setEmail(ev.target.value)}
               />
