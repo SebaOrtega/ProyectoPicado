@@ -7,6 +7,8 @@ router.route('/').get((req,res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+//http://localhost:5000/clients/add
+
 router.route('/add').post((req, res) => {
     const nombre_cliente = req.body.nombre_cliente;
     const apellido_cliente = req.body.apellido_cliente;

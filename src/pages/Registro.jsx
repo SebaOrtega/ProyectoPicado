@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../components/Button";
 import "../styles/Registro.css";
+import axios from 'axios';
+
 
 const Registro = () => {
 
@@ -10,9 +12,19 @@ const Registro = () => {
   const [apellido, setApellido] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rep_pw, setRep_Password] = useState("");
 
+  const Cliente = {
+    nombre,
+    apellido,
+    email,
+    password,
+    rep_pw
+  }
   const submit = () => {
-    alert(`${email}, ${password},${nombre},${apellido}`);
+    axios.post('http://localhost:5000/clients/add', Cliente)
+    .then(res => console.log(res.data));
+    //alert(`${email}, ${password},${nombre},${apellido}`);
   };
 
   return (
@@ -57,6 +69,13 @@ const Registro = () => {
                 id="password"
                 placeholder="Contraseña"
                 onChange={(ev) => setPassword(ev.target.value)}
+              />
+
+              <input
+                type="password"
+                id="rep_pw"
+                placeholder="Repetir contraseña"
+                onChange={(ev) => setRep_Password(ev.target.value)}
               />
 
               <Button

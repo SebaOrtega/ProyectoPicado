@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar.jsx";
 import Registro from "./pages/Registro";
 import RegistroNegocio from "./pages/RegistroNegocio";
 
+//import CreateClient from "./components/create-client.component";
 const App = () => {
   const [showNav, setShowNav] = useState(true);
 
@@ -36,10 +37,10 @@ const App = () => {
       <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/Login">
+        <Route path="/Login" > 
           <NuevoLogin />
         </Route>
-        <Route path="/Registro">
+        <Route path="/Registro" /*component={CreateClient}*/>
           <Registro />
         </Route>
         <Route path="/RegistroNegocio">
