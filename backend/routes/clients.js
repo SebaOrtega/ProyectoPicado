@@ -23,8 +23,11 @@ router.route('/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/:id').get((req,res) => {
-    Client.findById(req.params.id)
+router.route('/:mail').get((req,res) => {
+
+    const mail2 = {"mail:" : req.params.mail}
+
+    Client.find(mail2)
     .then(client => res.json(client))
     .catch(err => res.status(400).json('Error: ' + err));
 });

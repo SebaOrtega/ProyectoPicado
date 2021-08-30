@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../components/Button";
 import "../styles/Login.css";
+import axios from 'axios';
 
 const Login = () => {
 
@@ -9,8 +10,16 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const Cliente = {
+    email,
+    password
+  }
+
   const submit = () => {
-    alert(`${email}, ${password}`);
+    console.log(Cliente);
+    axios.post('http://localhost:5000/clients/add', Cliente)
+    .then(res => console.log(res.data));
+    //alert(`${email}, ${password}`);
   };
 
   return (
