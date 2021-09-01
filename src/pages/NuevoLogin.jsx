@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../components/Button";
 import "../styles/NuevoLogin.css";
+import axios from 'axios';
 
 const NuevoLogin = () => {
 
@@ -9,8 +10,16 @@ const NuevoLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const Cliente = {
+    email,
+    password
+  }
+  
   const submit = () => {
-    alert(`${email}, ${password}`);
+    console.log(Cliente);
+    axios.get('http://localhost:5000/clients/:mail', email)
+    .then(res => console.log(res.data));
+    //alert(`${email}, ${password}`);
   };
 
   return (

@@ -24,7 +24,7 @@ const Registro = () => {
   const submit = () => {
     console.log(Cliente);
     axios.post('http://localhost:5000/clients/add', Cliente)
-    .then(res => console.log(res.data));
+    .then( res => console.log(res.data));
     //alert(`${email}, ${password},${nombre},${apellido}`);
   };
 
@@ -59,7 +59,7 @@ const Registro = () => {
                 onChange={(ev) => setApellido(ev.target.value)}
               />
               <input
-                type="text"
+                type="email"
                 id="mail"
                 placeholder="Correo Electrónico"
                 onChange={(ev) => setEmail(ev.target.value)}

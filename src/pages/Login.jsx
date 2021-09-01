@@ -17,7 +17,7 @@ const Login = () => {
 
   const submit = () => {
     console.log(Cliente);
-    axios.post('http://localhost:5000/clients/add', Cliente)
+    axios.get('http://localhost:5000/clients/:mail', email)
     .then(res => console.log(res.data));
     //alert(`${email}, ${password}`);
   };

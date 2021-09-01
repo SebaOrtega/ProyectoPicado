@@ -16,19 +16,20 @@ router.route('/add').post((req, res) => {
     const password = req.body.password;
     const rep_pw = req.body.rep_pw;
 
-    const newClient = new Client({nombre_cliente, apellido_cliente, mail, password, rep_pw});
+    if( password === rep_pw ){
 
-    newClient.save()
-    .then(() => res.json('¡Client added!'))
-    .catch(err => res.status(400).json('Error: ' + err));
+        const newClient = new Client({nombre_cliente, apellido_cliente, mail, password, rep_pw});
+        newClient.save()
+        .then(() => res.json('¡Client added!'))
+        .catch(err => res.status(400).json('Error: ' + err)).then();
+    }else{
+        prompt("Las contraseñas no son iguales");
+    }
 });
 
 router.route('/:mail').get((req,res) => {
-
-    const mail2 = {"mail:" : req.params.mail}
-
-    Client.find(mail2)
-    .then(client => res.json(client))
+    Client.find(req.params)
+    .then(client => res.json(client))//Si la cadena vuelve vacía, hay que devolverlo a la página anterior then(if (res.json(client) === "" ){})
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
