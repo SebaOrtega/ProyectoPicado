@@ -1,6 +1,10 @@
 const router = require('express').Router();
 let Client = require('../models/client.model')
 
+
+//@route GET /clients
+//@desc  Get all clients
+//@acces Public
 router.route('/').get((req,res) => {
     Client.find()
     .then(clients => res.json(clients))
@@ -9,6 +13,9 @@ router.route('/').get((req,res) => {
 
 //http://localhost:5000/clients/add
 
+//@route POST /clients/add
+//@desc  Adds a client 
+//@acces Public
 router.route('/add').post((req, res) => {
     const nombre_cliente = req.body.nombre_cliente;
     const apellido_cliente = req.body.apellido_cliente;
@@ -27,9 +34,17 @@ router.route('/add').post((req, res) => {
     }
 });
 
-router.route('/:mail').get((req,res) => {
-    Client.find(req.params)
-    .then(client => res.json(client))//Si la cadena vuelve vacía, hay que devolverlo a la página anterior then(if (res.json(client) === "" ){})
+//@route POST /login/Cliente
+//@desc  Trying to make a login
+//@acces Public
+router.route('/login/Cliente').post((req,res) => {
+    //Client.find( {mail:"a", password: "a"} )
+    const mail = req.body.mail;
+    const password = req.body.password;
+    console.log("Parametros: " + mail + " + " + password );
+    
+    Client.find( {mail: mail, password: password} )
+    .then(         client => res.json(client)           )
     .catch(err => res.status(400).json('Error: ' + err));
 });
 

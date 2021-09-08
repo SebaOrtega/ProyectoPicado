@@ -7,17 +7,17 @@ import axios from 'axios';
 const NuevoLogin = () => {
 
   /* En las variables email y password se almacenan los datos del login */
-  const [email, setEmail] = useState("");
+  const [mail, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const Cliente = {
-    email,
+    mail,
     password
   }
   
   const submit = () => {
     console.log(Cliente);
-    axios.get('http://localhost:5000/clients/:mail', email)
+    axios.post('http://localhost:5000/clients/login/Cliente', Cliente)
     .then(res => console.log(res.data));
     //alert(`${email}, ${password}`);
   };
