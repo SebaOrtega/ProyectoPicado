@@ -2,6 +2,10 @@ const router = require('express').Router();
 let Client = require('../models/client.model')
 
 
+/*Why promt doesn't work?
+It seems you run this code in a Node.js environment, 
+in the site that provides this environment. window object is not defined in this environment.*/
+
 //@route GET /clients
 //@desc  Get all clients
 //@acces Public
@@ -30,7 +34,7 @@ router.route('/add').post((req, res) => {
         .then(() => res.json('¡Client added!'))
         .catch(err => res.status(400).json('Error: ' + err)).then();
     }else{
-        prompt("Las contraseñas no son iguales");
+        console.log("Las contraseñas no son iguales");
     }
 });
 
@@ -41,11 +45,10 @@ router.route('/login/Cliente').post((req,res) => {
     //Client.find( {mail:"a", password: "a"} )
     const mail = req.body.mail;
     const password = req.body.password;
-    console.log("Parametros: " + mail + " + " + password );
-    
+    //console.log("Parametros: " + mail + " + " + password );
     Client.find( {mail: mail, password: password} )
-    .then(         client => res.json(client)           )
-    .catch(err => res.status(400).json('Error: ' + err));
+    .then(      client => res.json(client) )
+    .catch(err => res.status(400).json('Error: ' + err) );
 });
 
 router.route('/:id').delete((req,res) => {
