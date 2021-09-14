@@ -25,30 +25,50 @@ router.route('/add').post((req, res) => {
     const apellido_cliente = req.body.apellido_cliente;
     const mail = req.body.mail;
     const password = req.body.password;
-    const rep_pw = req.body.rep_pw;
 
-    if( password === rep_pw ){
+    const newClient = new Client({nombre_cliente, apellido_cliente, mail, password});
 
-        const newClient = new Client({nombre_cliente, apellido_cliente, mail, password, rep_pw});
+    newClient.save(err =>{
+        
+        if(err){
+            res.status(500).send('ERROR AL REGISTRAR AL USUARIO UNU');
+        }else{
+            res.status(200).send('USUARIO REGISTRADO OWO');
+        }
+    });
+        /*
         newClient.save()
         .then(() => res.json('¡Client added!'))
-        .catch(err => res.status(400).json('Error: ' + err)).then();
-    }else{
-        console.log("Las contraseñas no son iguales");
-    }
+        .catch(err => res.status(400).json('Error: ' + err)).then();*/
+
 });
 
 //@route POST /login/Cliente
 //@desc  Trying to make a login
 //@acces Public
 router.route('/login/Cliente').post((req,res) => {
-    //Client.find( {mail:"a", password: "a"} )
+
     const mail = req.body.mail;
     const password = req.body.password;
-    //console.log("Parametros: " + mail + " + " + password );
-    Client.find( {mail: mail, password: password} )
-    .then(      client => res.json(client) )
-    .catch(err => res.status(400).json('Error: ' + err) );
+
+    Client.findOne( {mail}, ( err,user) =>{
+        if(err){
+            res.status(500).send('ERROR AL AUTENTICAR EL USUARIO');
+        }else if(!mail){
+            res.status(500).send('NO SE HA REGISTRADO NINGUN USUARIO CON ESE MAIL');
+        }else{
+            user.isCorrectPassword(password, (err, result) =>{
+                if(err){
+                    res.status(500).send('ERROR AL AUTENTICAR');
+                }else if(result){
+                    res.status(200).send('USUARIO AUTENTICADO CORRECTAMENTE');
+                }else{
+                    res.status(500).send('USUARIO Y/O CONTRASEÑA INCORRECTA');
+                }
+            })
+        }
+    })
+
 });
 
 router.route('/:id').delete((req,res) => {
