@@ -31,9 +31,9 @@ router.route('/add').post((req, res) => {
     newClient.save(err =>{
         
         if(err){
-            res.status(500).send('ERROR AL REGISTRAR AL USUARIO UNU');
+            res.status(500).send('ERROR AL REGISTRAR AL USUARIO');
         }else{
-            res.status(200).send('USUARIO REGISTRADO OWO');
+            res.status(200).send('USUARIO REGISTRADO');
         }
     });
         /*
@@ -88,9 +88,9 @@ router.route('/update/:id').post((req, res) => {
 
         client.save()
         .then(() => res.json('Client updated'))
-        .catch(err => res.stats(400).json('Error: ' + err));
+        .catch(err => res.status(400).json('Error: ' + err));
     })
-    .catch(err => res.stats(400).json('Error: ' + err))
+    .catch(err => res.status(400).json('Error: ' + err))
 });
 
 module.exports = router;
