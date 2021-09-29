@@ -51,13 +51,13 @@ router.route('/login/Cliente').post((req,res) => {
     const mail = req.body.mail;
     const password = req.body.password;
 
-    Client.findOne( {mail}, ( err,user) =>{
+    Client.findOne( {mail}, ( err,client) =>{
         if(err){
             res.status(500).send('ERROR AL AUTENTICAR EL USUARIO');
         }else if(!mail){
             res.status(500).send('NO SE HA REGISTRADO NINGUN USUARIO CON ESE MAIL');
         }else{
-            user.isCorrectPassword(password, (err, result) =>{
+            client.isCorrectPassword( password, (err, result) =>{
                 if(err){
                     res.status(500).send('ERROR AL AUTENTICAR');
                 }else if(result){
