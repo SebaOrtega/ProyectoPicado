@@ -66,10 +66,25 @@
   padding: 0.5rem 1rem;
   height: 100%;
 }
+.prueba{
+  background-color: white;
+  color: black;
+  padding: 8px 20px;
+  margin-top: 12%;
+  height: 50%;
+  border-radius: 16px;
+  transition: all 0.3s ease-out;
+}
 
 .nav-links:hover {
-  border-bottom: 3px solid var(--yellow);
+  
   transition: all 0.2s ease-out;
+}
+.prueba:hover{
+  transition: all 0.2s ease-out;
+  background-color: #f7b71d;
+  color: white;
+
 }
 
 .fa-bars {
@@ -123,6 +138,8 @@
     color: #242424;
     border-radius: 0;
   }
+  
+  
 
   .navbar-logo {
     position: absolute;

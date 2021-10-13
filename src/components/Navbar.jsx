@@ -53,7 +53,7 @@ const Navbar = ({ showNav }) => {
             <li className="nav-item">
               <Link
                 to="/RegistroNegocio"
-                className="nav-links"
+                className="nav-links prueba"
                 onClick={closeMobileMenu}
               >
                 Registrá tu negocio

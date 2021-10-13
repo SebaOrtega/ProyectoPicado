@@ -50,14 +50,14 @@ const RegistroNegocio = () => {
             onChange={(ev) => setNegocio(ev.target.value)}
           ></input>
 
-          <label htmlFor="tipo-negocio">Tipo de negocio</label>
-          <Dropdown
-            id="tipo-negocio"
-            classname="dropdown"
-            options={options}
-            selected={selectedDropdown}
-            setSelected={setSelectedDropdown}
-          />
+            <label htmlFor="tipo-negocio">Tipo de negocio</label>
+            <Dropdown
+              id="tipo-negocio"
+              classname="dropdown"
+              options={options}
+              selected={selectedDropdown}
+              setSelected={setSelectedDropdown}
+            />
 
           <label htmlFor="email">Correo electrónico del negocio</label>
           <input
