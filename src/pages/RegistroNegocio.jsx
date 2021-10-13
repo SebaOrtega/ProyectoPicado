@@ -1,72 +1,73 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { useHistory } from "react-router";
-import "../styles/RegistroNegocio.css";
-import Dropdown from "../components/Dropdown";
-import { Link } from "react-router-dom";
 import { Button } from "../components/Button";
+import "../styles/Registro.css";
+import Dropdown from "../components/Dropdown";
 import axios from 'axios';
 
-const RegistroNegocio = () => {
-  let history = useHistory();
 
+const Registro = () => {
+  
   const [selectedDropdown, setSelectedDropdown] = useState("");
-
-  /* En la const options es donde se almacenaran las opciones a seleccionar del dropdown */
+  /* En las variables email y password se almacenan los datos del login */
   const options = ["Carniceria", "Verduleria", "Mercado"];
-  const [negocio, setNegocio] = useState();
+  const [nombre_negocio, setNegocio] = useState();
   const [emailNegocio, setEmailNegocio] = useState();
   const tipoNegocio = selectedDropdown;
+  
 
   const Negocio = {
-    negocio,
+    nombre_negocio,
     emailNegocio,
     tipoNegocio
   }
-
   const submit = () => {
     console.log(Negocio);
-    axios.post('http://localhost:5000/Negocio/add', Negocio)
+    axios.post('http://localhost:5000/negocio/add', Negocio)
     .then( res => console.log(res.data));
-
+    //alert(`${email}, ${password},${nombre},${apellido}`);
   };
-  // console.log(tipoNegocio, negocio, emailNegocio);
 
   return (
-    <div className="grid-container">
-      <div className="derecha">
-        <button
-          className="fas fa-arrow-left botones-guia"
-          onClick={() => history.goBack()}
-        ></button>
+    <div className="main">
+      <div className="main-container">
+      <div className="registro-img-container">
 
-        <div className="registronegocio-container">
-          <h1>Registro de tu negocio</h1>
+</div>
+        <div className="login-container">
+          <div className="login-main-container">
+            <div className="logotext-container">
+              <p>REGISTRATE EN</p>
+              <h1>Proyecto Solidario</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+                odit fugiat consectetur rerum ex magni!
+            </p>
+            </div>
 
-          <label htmlFor="negocio">Nombre del negocio</label>
+            <div className="input-container">
+            <input
+                type="text"
+                id="nombre_negocio"
+                placeholder="Nombre"
+                onChange={(ev) => setNegocio(ev.target.value)}
+              />
+              
+        
+              <input
+                type="email"
+                id="emailNegocio"
+                placeholder="Correo Electrónico"
+                onChange={(ev) => setEmailNegocio(ev.target.value)}
+              />
 
-          <input
-            type="text"
-            id="negocio"
-            onChange={(ev) => setNegocio(ev.target.value)}
-          ></input>
-
-          <label htmlFor="tipo-negocio">Tipo de negocio</label>
-          <Dropdown
-            id="tipo-negocio"
-            classname="dropdown"
-            options={options}
-            selected={selectedDropdown}
-            setSelected={setSelectedDropdown}
-          />
-
-          <label htmlFor="email">Correo electrónico del negocio</label>
-          <input
-            type="text"
-            id="email-negocio"
-            onChange={(ev) => setEmailNegocio(ev.target.value)}
-          />
-
+              <label htmlFor="tipo-negocio">Tipo de negocio</label>
+              <Dropdown
+                id="tipo-negocio"
+                classname="dropdown"
+                options={options}
+                selected={selectedDropdown}
+                setSelected={setSelectedDropdown}
+              />
               <Button
                 onClick={submit}
                 linkTo=""
@@ -75,14 +76,15 @@ const RegistroNegocio = () => {
               >
                 REGISTRARSE
             </Button>
-        </div>
-      </div>
 
-      <div className="izquierda">
-        <button to="/Registro" className="fas fa-times botones-guia"></button>
+              
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );
 };
 
-export default RegistroNegocio;
+export default Registro ;
