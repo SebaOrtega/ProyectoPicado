@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import { useHistory } from "react-router";
 import "../styles/RegistroNegocio.css";
 import Dropdown from "../components/Dropdown";
+import { Link } from "react-router-dom";
+import { Button } from "../components/Button";
+import axios from 'axios';
 
 const RegistroNegocio = () => {
   let history = useHistory();
@@ -11,11 +14,22 @@ const RegistroNegocio = () => {
 
   /* En la const options es donde se almacenaran las opciones a seleccionar del dropdown */
   const options = ["Carniceria", "Verduleria", "Mercado"];
-	
   const [negocio, setNegocio] = useState();
   const [emailNegocio, setEmailNegocio] = useState();
   const tipoNegocio = selectedDropdown;
 
+  const Negocio = {
+    negocio,
+    emailNegocio,
+    tipoNegocio
+  }
+
+  const submit = () => {
+    console.log(Negocio);
+    axios.post('http://localhost:5000/Negocio/add', Negocio)
+    .then( res => console.log(res.data));
+
+  };
   // console.log(tipoNegocio, negocio, emailNegocio);
 
   return (
@@ -53,7 +67,14 @@ const RegistroNegocio = () => {
             onChange={(ev) => setEmailNegocio(ev.target.value)}
           />
 
-          <button type="submit">Siguiente</button>
+              <Button
+                onClick={submit}
+                linkTo=""
+                buttonStyle="btnToLogin"
+                buttonSize="btnSizeLogin"
+              >
+                REGISTRARSE
+            </Button>
         </div>
       </div>
 

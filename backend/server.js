@@ -20,7 +20,10 @@ connection.once('open', () => {
 
 const clientsRouters = require('./routes/clients');
 const sellersRouters = require('./routes/sellers');
+const negociosRouters = require('./routes/negocio');
 
+
+app.use('/negocio', negociosRouters)
 app.use('/clients', clientsRouters);
 app.use('/sellers', sellersRouters)
 
